@@ -4,7 +4,7 @@
 #include <string.h>
 
 int main(){
-    int score = 0, acertos = 0, loop = 1, check = 0, randword, randomnum, replay, timer,t=5000, k = 0;
+    int score = 0, acertos = 0, loop = 1, check = 0, randword, randomnum, replay, timer,t=5000;
     float mult, pontos = 0;
     char word1[]="Bacon", word2[]="Veneno", word3[]="Jackpot", word4[]="Oraculo", word5[]="Papelao", word6[]="Osmose";
     char word7[]="chamine", word8[]="Ignorante", word9[]="Entrometida", word10[]="Pateta", word11[]="Farrapo", word12[]="Limitado", word13[]="Inutil";
@@ -12,35 +12,17 @@ int main(){
     char word20[]="Musical",word21[]="Hide", wordx[]=" ", barra = 92;
     struct result_t {
         int questao;
-        char palavra[10];
+        char palavra[15];
         int tempo;
         int nota;
     };
-    struct historico_t{
-        int partida;
-        int pontuacao;
-    };
-    struct result_t resultado[20];
-    struct historico_t scoreboard[10];
+    struct result_t resultado[15];
     clock_t time1, time2;
-    /*for(int i = 0; i<20; i++){
-        memset(resultado[i].palavra, 0, sizeof(resultado[i].palavra));
-        resultado[i].tempo = 0;
-        resultado[i].questao = 0;
-        resultado[i].nota = 0;
-    }
-    for(int i = 0; i<10; i++){
-        scoreboard[i].pontuacao = 0;
-        scoreboard[i].partida = 0;
-    }*/
     while(loop!=0){
-        int a = 0;
-        int b = 0;
         check = 0;
         char wordx[]=" ";
         randomnum = rand();
         randword = randomnum%21;
-        //randword = 1;
         for(int i = 0; i<21;i++){
         }
         switch(randword){
@@ -76,42 +58,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao =  score;
-                    for(int i = 0; i < k+1; i++){
-                        for(int j = 0; j < k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
-                                printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
+                                printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo, resultado[i].palavra, resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -153,42 +117,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -232,42 +178,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -309,42 +237,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -388,42 +298,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao =  score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -465,42 +357,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao =  score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -542,42 +416,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -621,42 +477,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -698,42 +536,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -775,42 +595,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -854,42 +656,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -931,42 +715,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1008,42 +774,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1085,42 +833,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1164,42 +894,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1243,42 +955,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1320,42 +1014,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1399,42 +1075,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1478,42 +1136,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1555,42 +1195,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
@@ -1632,42 +1254,24 @@ int main(){
                             printf("Errado!\n");
                         }
                     printf("Voce teve um total de %i acertos e sua pontuacao final foi de %i pontos!\n", acertos, score);
-                    scoreboard[k].partida = k + 1;
-                    scoreboard[k].pontuacao = score;
-                    for(int i = 0; i < k+1 ; i++){
-                        for(int j = 0; j< k+1; j++){
-                            if(scoreboard[j].pontuacao<scoreboard[i].pontuacao){
-                                a = scoreboard[j].pontuacao;
-                                b = scoreboard[i].pontuacao;
-                                scoreboard[i].pontuacao = a;
-                                scoreboard[j].pontuacao = b;
-                            }
-                        }
-                    }
-                    k++;
                     while(check!=1){    
                         printf("Fim de Jogo\n");
                         printf("1 - Ver resultados dessa rodada.\n");
-                        printf("2 - Ver leaderboard\n");
-                        printf("3 - Jogar novamente.\n");
-                        printf("4 - Sair\n");
+                        printf("2 - Jogar novamente.\n");
+                        printf("3 - Sair\n");
                         scanf("%i", &replay);
                         while(getchar()!='\n');
                         if(replay==1){
                             for(int i = 0; i<acertos; i++){
                                 printf(" QUESTAO %i TEMPO DEMORADO %i RESPOSTA %s PONTUACAO %i \n", resultado[i].questao, resultado[i].tempo,resultado[i].palavra,resultado[i].nota);
                             }
-                        }else if(replay == 2){
-                            for(int i = 0; i<k; i++){
-                                printf(" %io LUGAR :: SCORE %i \n", i+1, scoreboard[i].pontuacao);
-                            }
-                        }else if(replay==3){
+                        }else if(replay==2){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
                             score = 0;
                             acertos = 0;
-                        }else if(replay==4){
+                        }else if(replay==3){
                             printf("Obrigado por jogar!\n");
                             check = 1;
                             loop = 0;
