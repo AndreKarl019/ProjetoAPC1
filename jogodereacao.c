@@ -4,7 +4,7 @@
 #include <string.h>
 
 int main(){
-    int score = 0, acertos = 0, loop = 1, check = 0, randword, randomnum, replay, timer,t=5000;
+    int score = 0, acertos = 0, loop = 1, check = 0, randword, randomnum, replay, timer,t=5000, menu, checke;
     float mult, pontos = 0;
     char word1[]="Bacon", word2[]="Veneno", word3[]="Jackpot", word4[]="Oraculo", word5[]="Papelao", word6[]="Osmose";
     char word7[]="chamine", word8[]="Ignorante", word9[]="Entrometida", word10[]="Pateta", word11[]="Farrapo", word12[]="Limitado", word13[]="Inutil";
@@ -19,12 +19,34 @@ int main(){
     struct result_t resultado[15];
     clock_t time1, time2;
     while(loop!=0){
-        check = 0;
         char wordx[]=" ";
         randomnum = rand();
         randword = randomnum%21;
-        for(int i = 0; i<21;i++){
+        while(checke==0){
+            printf("    \n  BEM VINDO AO JOGO DE REACAO\n");
+            printf("1 - Iniciar\n");
+            printf("2 - Ver uma explicacao do jogo\n");
+            printf("3 - Sair \n");
+            scanf("%i", &menu);
+            while(getchar()!='\n');
+            if(menu==1){
+                checke = 1;
+                printf("Boa sorte!\n");
+                system("clear");
+            }else if(menu==2){
+                printf("\nO jogo consiste em escrever a palavra que aparecera na sua tela o mais rapido possivel.\n");
+                printf("O tempo limite para cada palavra reduzira conforme voce acerta palavras!\n");
+                printf("Os pontos por acerto aumentam com acertos em sequencia e pela velocidade de resposta!\n");
+                _sleep(500);
+            }else if(menu==3){
+                printf("Ate logo!\n");
+                checke = 1;
+                randword = -1;
+            }else{
+                printf("Escolha invalida! Tente novamente.\n");
+            }
         }
+        check = 0;
         switch(randword){
             case 0:{
                 time1 = clock();
@@ -73,6 +95,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -132,6 +155,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -193,6 +217,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -252,6 +277,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -313,6 +339,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -372,6 +399,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -431,6 +459,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -492,6 +521,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -551,6 +581,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -610,6 +641,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -671,6 +703,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -730,6 +763,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -789,6 +823,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -848,6 +883,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -909,6 +945,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -970,6 +1007,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -1029,6 +1067,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -1090,6 +1129,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -1151,6 +1191,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -1210,6 +1251,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -1269,6 +1311,7 @@ int main(){
                             printf("Boa sorte!\n");
                             t=5000;
                             check = 1;
+                            checke = 0;
                             score = 0;
                             acertos = 0;
                         }else if(replay==3){
@@ -1280,7 +1323,8 @@ int main(){
                         }
                     }    
                 }
-            }break; 
+            }break;
+            default:{ loop = 0;} 
         }
     }
     return 0;
